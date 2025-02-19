@@ -2,6 +2,14 @@
 
 A comprehensive Python-based recipe management and meal planning system that helps users organize recipes, plan meals, and generate shopping lists.
 
+## How to Run
+
+To start the Recipe Organizer, simply run the following command in your terminal:
+
+```bash
+python3 main.py
+```
+
 ## Features
 
 ### 1. Recipe Management
@@ -10,11 +18,11 @@ A comprehensive Python-based recipe management and meal planning system that hel
 - Create new recipes with unique IDs
 - Specify recipe name, ingredients with quantities (in grams)
 - Assign recipe categories (breakfast, lunch, dinner, snack)
-- Add dietary tags (vegetarian, vegan, gluten-free, dairy-free)
+- Add dietary tags (veg, vegan, non-veg, dairy)
 - Include calorie information
 - Prevent duplicate recipe names
 - Ensure valid ingredient quantities
-
+x
 #### List Recipes
 - View all stored recipes
 - Display comprehensive recipe details:
@@ -89,6 +97,11 @@ Three search methods available:
   - Snack recipe
   - Dinner recipe
 
+### 4. Data Storage
+- Data storage using a JSON file.
+- Ensuring that recipes and meal plans are saved locally.
+- Allowing users to retain their data even after exiting the program.
+
 #### RecipeOrganizer
 - Main management class
 - Handles all operations and user interactions
@@ -124,7 +137,8 @@ Three search methods available:
 5. Plan Meals
 6. View Meal Plans
 7. Generate Shopping List
-8. Exit
+8. Save Data
+9. Exit
 
 ## Requirements
 - Python 3.x

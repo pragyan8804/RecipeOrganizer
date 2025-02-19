@@ -2,6 +2,9 @@ from services.recipe_service import RecipeService
 from services.search_service import SearchService
 from services.meal_plan_service import MealPlanService
 from services.shopping_list_service import ShoppingListService
+from services.data_service import DataService
+from models.recipe import Recipe
+from models.meal_plan import MealPlan
 
 class RecipeOrganizer:
     def __init__(self):
@@ -9,6 +12,10 @@ class RecipeOrganizer:
         self.search_service = SearchService(self.recipe_service)
         self.meal_plan_service = MealPlanService(self.recipe_service)
         self.shopping_list_service = ShoppingListService(self.meal_plan_service)
+        self.data_service = DataService(self.recipe_service, self.meal_plan_service)
+        
+        # Load saved data when starting the program
+        self.data_service.load_data()
 
     def main_menu(self):
         """Display and handle the main menu"""
@@ -21,9 +28,10 @@ class RecipeOrganizer:
             print("5. Plan Meals")
             print("6. View Meal Plans")
             print("7. Generate Shopping List")
-            print("8. Exit")
+            print("8. Save Data")
+            print("9. Exit")
             
-            choice = input("Enter your choice (1-8): ").strip()
+            choice = input("Enter your choice (1-9): ").strip()
             
             if choice == "1":
                 self.recipe_service.add_recipe()
@@ -40,6 +48,10 @@ class RecipeOrganizer:
             elif choice == "7":
                 self.shopping_list_service.generate_shopping_list()
             elif choice == "8":
+                self.data_service.save_data()
+            elif choice == "9":
+                # Save data before exiting
+                self.data_service.save_data()
                 print("Goodbye!")
                 break
             else:

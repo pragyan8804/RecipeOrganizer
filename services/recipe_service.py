@@ -5,7 +5,7 @@ class RecipeService:
     def __init__(self):
         self.recipes = []
         self.valid_categories = ["breakfast", "lunch", "dinner", "snack"]
-        self.valid_tags = ["vegetarian", "vegan", "gluten-free", "dairy-free"]
+        self.valid_tags = ["veg", "vegan", "non-veg", "dairy"]
 
     def get_ingredients(self):
         """Helper function to get ingredients and their quantities"""
